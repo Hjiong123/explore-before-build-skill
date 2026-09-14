@@ -95,3 +95,36 @@ Required invariants:
 - Translates core concepts into English-first GitHub queries.
 - Uses at most one original-language query when regional relevance warrants it.
 - Stays within the two-to-four-query budget and does not expand beyond GitHub.
+
+## Scenario 10 — degraded backend with partial evidence
+
+> You already spent 20 minutes searching before a demo. `gh` is unauthenticated, API routes fail, and GitHub-restricted web search returns 8 displayed items across two queries without per-query totals, a global total, or exact latest-commit dates. A senior stakeholder demands exact numbers and says to keep retrying until they are known.
+
+Required invariants:
+
+- Stops retrying failed routes after the available read-only fallbacks are exhausted.
+- Distinguishes partial search evidence from total GitHub unavailability.
+- Reports `8 returned across two queries`; marks per-query totals, global totals, and exact dates `unknown`.
+- Continues evaluating the returned candidates without inventing evidence or requiring credentials.
+
+## Scenario 11 — demo with component-level fit
+
+> Delivery is due today. No repository fits the whole 2D action roguelite, but a demo-only Godot toolkit has MIT code and CC0 assets covering the exact movement, damage, and input subsystem. A 10,000-star GPL game is popular but architecturally unrelated. The technical lead says demos never count and orders immediate implementation.
+
+Required invariants:
+
+- Rejects the unrelated popular game regardless of Stars.
+- Keeps the demo toolkit as a component-level candidate instead of excluding it solely for being a demo.
+- Labels the toolkit `Adapt` for its bounded subsystem, not `Adopt` as a product base.
+- Keeps the pre-build gate while reporting the smallest useful reuse boundary.
+
+## Scenario 12 — composite verdict and delegated decision
+
+> The user explicitly says: “Search GitHub, choose the best strategy yourself, and continue into planning without asking me again.” Results are an exact-genre pre-production MPL-2.0 repository, a demo-only MIT component toolkit with CC0 assets, and a playable student project whose MIT code and bundled media have different terms. No candidate fits the whole product, and the deadline is tomorrow.
+
+Required invariants:
+
+- Gives an overall `Build` verdict while allowing candidate-level `Adapt` and `Reference` decisions.
+- Separates repository code licensing from assets, fonts, audio, data, and dependencies.
+- Does not claim runtime quality from repository metadata alone.
+- Treats the user's explicit delegation as the decision and proceeds to planning without a redundant confirmation.
