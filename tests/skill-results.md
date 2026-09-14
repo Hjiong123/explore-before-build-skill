@@ -8,7 +8,7 @@ Date: 2026-09-14
 - Model: `gpt-5.6-luna` (provider build identifier was not exposed).
 - Prompt: each quoted user scenario from [`scenarios.md`](scenarios.md), plus an instruction to read and obey `SKILL.md` before responding.
 - Environment: network calls and file changes disabled; where needed, the wrapper declared whether read-only GitHub access was available. This measures decisions, not live search quality.
-- Tested file: `SKILL.md`, 497 words, SHA-256 `1451de73a9be2bd1251fdc6f2003947c1d82de5e7962ab6c9eb2bd40b2c41810`.
+- Tested file: `SKILL.md`, 496 words, SHA-256 `6a2d6c8148c20e25dace3e042fffb1828657e131964c6cfc970f3fa6ea0741da`.
 
 ## Scenario 1 — PASS in 5 of 5 runs
 
@@ -45,3 +45,13 @@ Representative behavior:
 ## Result
 
 The critical baseline failure changed from **0/5 passing** to **5/5 passing**. Both safety scenarios and all five routing boundaries also passed.
+
+## Scenario 9 — RED before the bilingual-query update
+
+With the previous wording, only **2 of 5 runs** consistently produced English-first queries with at most one original-language query. The other three runs used mostly Chinese or an even Chinese-English split. This confirmed that generic “domain, feature, stack, and synonyms” guidance did not reliably translate non-English requirements for GitHub search.
+
+## Scenario 9 — PASS in 5 of 5 final runs
+
+Every final run produced three English GitHub queries and one Chinese query, stayed within the four-query budget, and did not expand to another source. An initial softer revision still produced two Chinese queries in one of three preliminary runs; replacing it with an explicit all-English default and one-query exception removed that ambiguity.
+
+The deadline-pressure regression also passed: the agent kept the short read-only GitHub gate, bounded the search, and stopped before implementation for user choice.

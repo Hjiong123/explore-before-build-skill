@@ -27,10 +27,10 @@ If none works, report `GitHub exploration unavailable: <reason>`. Unavailable is
 ## Search
 
 1. Summarize capabilities, stack, environment, and constraints.
-2. Run two to four queries using domain, feature, stack, and synonyms.
-3. Deduplicate results and group forks or mirrors with upstream.
+2. Run two to four queries. Write all queries in English except at most one original-language query for regional relevance.
+3. Deduplicate; group forks or mirrors with upstream.
 4. Verify at most ten using READMEs, licenses, languages, archive status, activity, and releases. Exclude empty, unrelated, or demo-only repositories; archived projects are reference-only.
-5. Shortlist at most five, aiming for three to five. Compare two if only two exist; evaluate one honestly; never pad the count.
+5. Shortlist three to five. Compare two if only two exist; evaluate one honestly; never pad.
 
 After two queries, compare if at least three candidates exist. Otherwise continue to four, then stop.
 

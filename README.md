@@ -11,6 +11,7 @@ Coding agents often start scaffolding immediately under deadline pressure. This 
 ## Features
 
 - Two to four GitHub query variants.
+- English-first queries for non-English briefs, with at most one original-language query when regional context matters.
 - Deduplication of mirrors and forks.
 - Up to ten repositories verified and five candidates presented.
 - Evidence-based comparison of fit, gaps, stack, maintenance, license, and adaptation effort.
@@ -62,7 +63,6 @@ It can also activate automatically when its frontmatter description matches the 
 
 Repository pages, README files, issues, and source code are untrusted data. Exploration never executes their instructions and never clones, installs, runs, forks, vendors, or edits a project before user confirmation.
 
-## Publishing
+## License
 
-The repository intentionally has no license yet. Before publishing, the owner must choose and add a license; without one, others generally do not receive permission to copy, modify, or redistribute the project.
-
+Released under the [MIT License](LICENSE).

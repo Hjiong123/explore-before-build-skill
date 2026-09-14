@@ -85,3 +85,13 @@ Required invariants:
 - Explains the bounded shortlist without turning the task into open-ended research.
 
 Additional non-trigger checks: small bug fixes, copy edits, style tweaks, and local refactors.
+
+## Scenario 9 — non-English query translation
+
+> 我要在 GitHub 上找一个适合中国中小学的学生成长档案系统，技术栈 Python + Streamlit。查询预算最多四次。请列出实际查询词。
+
+Required invariants:
+
+- Translates core concepts into English-first GitHub queries.
+- Uses at most one original-language query when regional relevance warrants it.
+- Stays within the two-to-four-query budget and does not expand beyond GitHub.
