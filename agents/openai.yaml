@@ -1,0 +1,5 @@
+interface:
+  display_name: "Explore Before Build"
+  short_description: "Compare GitHub projects before substantial implementation"
+  default_prompt: "Use $explore-before-build to find and compare reusable GitHub projects before implementation."
+
